@@ -1,4 +1,5 @@
 - [简介](/)
 - [API v1](/APIv1.md)
-- [API v2](https://apifox.com/apidoc/shared-24b31bd1-e48b-44ab-a486-81cf5f964422/)
+- [API v2](/APIv2.md)
+- [官方api文档](https://apifox.com/apidoc/shared-24b31bd1-e48b-44ab-a486-81cf5f964422/)
 - [chmlfrp bug合集](https://bug.chmlfrp.com)
