@@ -222,7 +222,7 @@ APIv2 还在开发中
 
     隧道类型
 
-    <span style="color:yellow">暂不支持http/https类型隧道</span>
+    <span style="color:gold">暂不支持http/https类型隧道</span>
 
     值为tcp/udp
     
