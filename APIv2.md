@@ -65,6 +65,7 @@ APIv2 还在开发中
     国内带宽限制(Mdps): 该值*1
 
     国外宽带限制(Mdps): 该值*4
+
 ## 用户信息
 - 接口
     > GET&POST /userinfo
@@ -77,6 +78,7 @@ APIv2 还在开发中
 - 返回
 
   [**同上 /login**](#登录)
+
 ## 隧道列表
 - 接口
     > GET&POST /tunnel
@@ -110,7 +112,7 @@ APIv2 还在开发中
     |id|int|是|隧道id|
     |name|str|是|隧道名|
     |node|str|是|所属节点|
-    |nodestate|str/null|是|节点状态|
+    |nodestate|str/null|是|详见下方|
     |type|str|是|隧道类型|
     |localip|str|是|内网ip|
     |nport|int|是|内网端口|
@@ -126,6 +128,31 @@ APIv2 还在开发中
     |today_traffic_in|int|是|今日该隧道上传流量|
     |today_traffic_out|int|是|今日该隧道下载流量|
     |cur_conns|int|是|当前隧道连接数|
+
+    <b><i>nodestate</b></i>：
+
+    若返回str且值为"online" 则该隧道所属节点在线
+
+    若返回null 则该隧道节点永久下线
+
+## 重置用户令牌
+- 接口
+    > GET&POST /retoken
+- 请求参数
+
+    **Query/表单**:
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |token|str|是|用户令牌|
+- 返回
+
+    **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+
 ## 创建隧道
 - 接口
     > POST /create_tunnel
@@ -292,6 +319,20 @@ APIv2 还在开发中
     |msg|str|是|返回消息|
     |data|str|否|frpc.ini内容|
 
+## 节点数据
+
+- 接口
+    > GET&POST /update_qq
+
+- 返回
+
+   **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+
 ## 修改QQ号
 - 接口
     > GET&POST /update_qq
@@ -303,6 +344,53 @@ APIv2 还在开发中
     |token|str|是|用户令牌|
     |new_qq|str|是|新QQ号|
 
+- 返回
+
+   **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+
+## 修改用户名
+- 接口
+    > GET&POST /update_username
+- 请求参数
+
+    **Query/表单**:
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |token|str|是|用户令牌|
+    |new_username|str|是|新用户名|
+
+- 返回
+
+   **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+
+## 修改用户头像
+- 接口
+    > GET&POST /update_userimg
+- 请求参数
+
+    **Query/表单**:
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |token|str|是|用户令牌|
+    |new_userimg|str|是|详见下方|
+
+    <b><i>tunnel_userimg</b></i>:
+
+    用户新头像图片url
+
+    图片链接仅支持直链，且无反盗链的链接
+
+    必须为 `http://` 或 `https://` 开头
 - 返回
 
    **JSON**：
