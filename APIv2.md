@@ -319,20 +319,6 @@ APIv2 还在开发中
     |msg|str|是|返回消息|
     |data|str|否|frpc.ini内容|
 
-## 节点数据
-
-- 接口
-    > GET&POST /update_qq
-
-- 返回
-
-   **JSON**：
-    |参数|类型|必返|说明|
-    |:--:|:--:|:--:|:--:|
-    |code|int|是|返回状态码|
-    |state|str|是|请求是否成功|
-    |msg|str|是|返回消息|
-
 ## 修改QQ号
 - 接口
     > GET&POST /update_qq
