@@ -153,6 +153,40 @@ APIv2 还在开发中
     |state|str|是|请求是否成功|
     |msg|str|是|返回消息|
 
+## 节点状态
+- 接口
+    > GET/POST /node_stats
+- 返回
+
+    **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+    |data|map|否|详见下方|
+
+    <b><i>data</b></i>:
+
+    当上方 `state` 为 `success` 返回
+
+    为一个list对象 其中有若干个map 
+    
+    map：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |id|int|是|节点识别编号|
+    |node_name|str|是|节点名称|
+    |nodegroup|str|是|节点所属组|
+    |state|str|是|在线状态(online/offline)|
+    |client_counts|int|是|客户端连接数|
+    |tunnel_counts|int|是|隧道连接数|
+    |cur_counts|int|是|活跃连接数|
+    |cpu_usage|int|是|cpu使用率%|
+    |bandwidth_usage_percent|int|是|带宽占用%|
+    |total_traffic_in|int|是|今日下载(bytes)|
+    |total_traffic_out|int|是|今日上传(bytes)|
+
 ## 创建隧道
 - 接口
     > POST /create_tunnel
