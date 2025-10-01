@@ -3,10 +3,14 @@ API v1大部分接口同时支持HTTP GET/POST请求
 
 请在调用过程中多观察增强报错处理 考虑多种情况
 
+**<span style="color:gold">API v1中有大量弃用api</span>**
+
+**<span style="color:gold">少部分已经停用 其他将逐步停用</span>**
+
 统一调用地址
 > https://cf-v1.uapis.cn/api
 
-## 登录
+## *~~登录 (已弃用)~~*
 - 接口
     > /login.php 
 - 请求参数
@@ -49,7 +53,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
         |:--:|:--:|:--:|
         |error|string|错误信息|
 
-## 节点信息
+## *~~节点信息 (已弃用)~~*
 - 接口
     > /unode.php
 - 返回
@@ -77,7 +81,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |udp|string|节点是否可以使用upd<true/false>|
     |wed|string|节点是否可以建站<yes/no>|
 
-## 用户隧道信息
+## *~~用户隧道信息 (已弃用)~~*
 - 接口
     > /usertunnel.php
 - 请求参数
@@ -113,7 +117,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
         |code|number|状态码|
         |error|string|错误信息|
 
-## 隧道信息
+## *~~隧道信息 (已弃用)~~*
 - 接口
     > /tunnelinfo.php
 - 请求参数
@@ -148,7 +152,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
         |code|number|状态码|
         |error|string|错误信息|
 
-## 新建隧道
+## *~~新建隧道 (已弃用)~~*
 - 接口
     > /tunnel.php
 - 请求参数
@@ -224,7 +228,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |code|number|状态码 200为成功|
     |error|string|返回信息|
 
-## frp配置文件生成
+## *~~frp配置文件生成 (已弃用)~~*
 - 接口
     > /frpconfig.php
 - 请求参数
@@ -240,6 +244,30 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |status|number|状态码 200为成功|
     |success|boolean|状态 true为成功|
     |message|string|该节点all隧道的frp配置文件|
+
+## frp下载
+- 接口
+    > /dw.php
+- 返回
+
+    ```
+    默认返回最新的
+    Map数据可变 自行请求参照
+    另注 
+    不建议使用这个下载frpc
+    下载下来为压缩包 需解压
+    可用frpc镜像源:
+    https://mirror.xcl.chmlfrp.com/chmlfrp/frpc/
+    ```
+
+    |属性|类型|说明|
+    |:--:|:--:|:--:|
+    |code|number|状态码 200为成功|
+    |link|string|下载母地址|
+    |up_time|string|更新时间 (格式:年-月-日)|
+    |version|string|版本号|
+    |system|Map|各系统具体地址|
+    |message|string|返回信息|
 
 ## 域名解析查询
 - 接口
@@ -268,7 +296,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
         |status|string|状态|
         |message|string|错误信息|
 
-## 重置令牌
+## *~~重置令牌 (已弃用)~~*
 - 接口
     > /resusertoken.php
 - 请求参数
@@ -290,7 +318,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
         |:--:|:--:|:--:|
         |error|string|错误信息|
 
-## 发送验证码邮件
+## *~~发送验证码邮件 (已弃用)~~*
 - 接口
     > /email.php
 - 请求参数
@@ -318,7 +346,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |status|string|状态|
     |message|string|返回信息|
 
-## 注册
+## *~~注册 (已弃用)~~*
 - 接口
     > /register.php
 - 请求参数
@@ -357,7 +385,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |status|string|状态|
     |message|string|返回信息|
 
-## 签到
+## *~~签到 (已弃用)~~*
 - 接口
     > /qiandao.php
 - 请求参数
@@ -422,7 +450,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |count_of_matching_records|number|今天签到人数|
     |total_sign_ins|string|累计签到次数|
 
-## 用户信息
+## *~~用户信息 (已弃用)~~*
 - 接口
     > /userinfo.php
 - 请求参数
@@ -521,7 +549,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |traffic_in|number|下载数据|
     |traffic_out|number|上传数据|
 
-## 用户节点数据
+## *~~用户节点数据 (已弃用)~~*
 - 接口
     > /confignode.php
 - 请求参数
@@ -565,7 +593,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     - 查询失败
         空返回
 
-## 面板设置
+## *~~面板设置 (已弃用)~~*
 - 接口
     > /usersetup.php
 - 请求参数
@@ -589,7 +617,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |code|number|状态码|
     |error|string|返回信息|
 
-## 面板信息
+## *~~面板信息 (已弃用)~~*
 - 接口
     > /sinfo.php
 - 返回

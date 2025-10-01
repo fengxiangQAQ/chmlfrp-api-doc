@@ -8,7 +8,7 @@ APIv2 还在开发中
 在 [XCL2](https://github.com/FengXiangqaq/Xingcheng-Chmlfrp-Lanucher/) 开发中发现本文档的错误也会纠正错误
 
 统一调用地址
-> https://cf-v2.uapis.cn/
+> https://cf-v2.uapis.cn
 
 ## 登录
 - 接口
@@ -186,6 +186,69 @@ APIv2 还在开发中
     |bandwidth_usage_percent|int|是|带宽占用%|
     |total_traffic_in|int|是|今日下载(bytes)|
     |total_traffic_out|int|是|今日上传(bytes)|
+
+## 节点详情
+- 接口
+    > GET /nodeinfo
+- 请求参数
+
+    **Query**:
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |token|str|是|用户令牌|
+    |node|str|是|节点名|
+- 返回
+
+    **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+    |data|map|否|详见下方|
+
+    <b><i>data</b></i>:
+
+    当上方 `state` 为 `success` 返回
+
+    为一个list对象 其中有若干个map 
+    
+    map：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |id|int|是|节点识别编号|
+    |name|str|是|节点名称|
+    |state|str|是|在线状态(online/offline)|
+    |notes|string|是|节点简介|
+    |nodegroup|string|是|节点可使用用户组|
+    |ip|string|是|节点地址|
+    |realIp|sting|是|节点的真实ip|
+    |ipv6|string|是|顾名思义|
+    |port|int|是|节点frp端口|
+    |rport|string|是|节点frp端口限制|
+    |udp|string|是|节点是否可以使用upd<true/false>|
+    |web|string|是|节点是否可以建站<yes/no>|
+    |china|string|是|是否是国内节点<yes/no>|
+    |area|string|是|节点所属地区|
+    |coordinates|string|是|节点地理经纬度|
+    |fangyu|string|是|是否有防御<true/false>|
+    |version|string|是|frps版本|
+    |cpu_info|int|是|cpu信息|
+    |num_cores|int|是|cpu核心数|
+    |total_traffic_in|int|是|今日下载(bytes)|
+    |total_traffic_out|int|是|今日上传(bytes)|
+    |bandwidth_usage_percent|int|是|带宽占用%|
+    |memory_total|int|是|总内存量(bytes)|
+    |storage_total|int|是|总存储量(bytes)|
+    |storage_used|int|是|存储使用量(bytes)|
+    |uptime_seconds|int|是|正常运行秒数|
+    |loadx|number|是|综合负载 详见下方|
+
+    <b><i>loadx</b></i>:
+
+    x为1,5,15 分别代表几分钟内综合负载
+
+    注 返回百分数的浮点数形态
 
 ## 创建隧道
 - 接口
