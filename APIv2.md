@@ -475,6 +475,39 @@ APIv2 还在开发中
     |state|str|是|请求是否成功|
     |msg|str|是|返回消息|
 
+## 签到信息
+- 接口
+    > GET /qiandao_info
+- 请求头
+    |参数|必填|说明|
+    |:--:|:--:|:--:|
+    |authorization|是|详见下方|
+
+    <b><i>authorization</b></i>:
+
+    格式 "Bearer {token}"
+    
+    用于传递token
+- 返回
+ 
+    **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+    |data|map|否|详见下方|
+
+    <b><i>data</b></i>:
+
+    当上方 `state` 为 `success` 返回
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |count_of_matching_records|int|是|今日签到人数|
+    |is_signed_in_today|bool|是|今日签到状态|
+    |last_sign_in_time|str|是|最后一次签到时间|
+    |total_points|int|是|累计签到获得积分|
+    |total_sign_ins|int|是|累计签到次数|
 ## 生成frpc.ini
 - 接口
     > GET&POST /tunnel_config
@@ -504,7 +537,61 @@ APIv2 还在开发中
     |state|str|是|请求是否成功|
     |msg|str|是|返回消息|
     |data|str|否|frpc.ini内容|
+## 兑换礼品码
+- 接口
+    > POST /redeem
+- 请求头
+    |参数|必填|说明|
+    |:--:|:--:|:--:|
+    |authorization|是|详见下方|
 
+    <b><i>authorization</b></i>:
+
+    格式 "Bearer {token}"
+    
+    用于传递token
+- 请求参数
+
+    **JSON**:
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |giftcode|str|是|礼品码|
+- 返回
+ 
+    **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+## 实名认证
+- 接口
+    > POST /redeem
+- 请求头
+    |参数|必填|说明|
+    |:--:|:--:|:--:|
+    |authorization|是|详见下方|
+
+    <b><i>authorization</b></i>:
+
+    格式 "Bearer {token}"
+    
+    用于传递token
+- 请求参数
+
+    **JSON**:
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |name|str|是|真实名字|
+    |idcard|str|是|身份证号码|
+- 返回
+ 
+    **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
 ## 修改QQ号
 - 接口
     > GET&POST /update_qq

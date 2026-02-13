@@ -182,7 +182,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
 
     该接口无返回
 
-## 修改隧道
+## *~~修改隧道 (已弃用)~~*
 - 接口
     > /cztunnel.php
 - 请求参数
@@ -211,7 +211,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
 
     该接口无返回
 
-## 删除隧道
+## *~~删除隧道 (已弃用)~~*
 - 接口
     > /deletetl.php
 - 请求参数
@@ -365,7 +365,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |message|string|返回信息|
     |success|boolean|状态|
 
-## 实名验证
+## *~~实名验证 (已弃用)~~*
 - 接口
     >POST  /realname.php
 - 请求参数
@@ -404,7 +404,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
     |total_sign_ins|number|累计签到次数|
     |total_points|number|累计积分|
 
-## 兑换码兑换
+## *~~兑换码兑换 (已弃用)~~*
 - 接口
     > /giftcode.php
 - 请求参数
@@ -431,7 +431,7 @@ API v1大部分接口同时支持HTTP GET/POST请求
         |success|boolean|值为false|
         |message|string|错误信息|
 
-## 签到信息
+## *~~签到信息 (已弃用)~~*
 - 接口
     > /qdxx.php
 - 请求参数
