@@ -415,6 +415,34 @@ APIv2 还在开发中
     |nodestate|null|是|值为null|
     |uptime|null|是|值为null|
 
+## 删除隧道
+- 接口
+    > GET /delete_tunnel
+- 请求头
+    |参数|必填|说明|
+    |:--:|:--:|:--:|
+    |authorization|是|详见下方|
+
+    <b><i>authorization</b></i>:
+
+    格式 "Bearer {token}"
+    
+    用于传递token
+- 请求参数
+    
+    **Query/表单**:
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |tunnelid|int|是|隧道id|
+- 返回
+ 
+    **JSON**：
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+
 ## 签到
 - 接口
     > POST /qiandao
