@@ -153,9 +153,40 @@ APIv2 还在开发中
     |state|str|是|请求是否成功|
     |msg|str|是|返回消息|
 
+## 节点列表
+- 接口
+    > GET&POST /node
+- 返回
+
+   **JSON**：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
+    |data|map|否|详见下方|
+
+    <b><i>data</b></i>:
+
+    当上方 `state` 为 `success` 返回
+
+    为一个list对象 其中有若干个map 
+    
+    map：
+    |参数|类型|必返|说明|
+    |:--:|:--:|:--:|:--:|
+    |id|int|是|节点识别编号|
+    |name|str|是|节点名称|
+    |nodegroup|str|是|节点所属组|
+    |area|str|是|节点地理位置|
+    |china|str|是|是否为国内节点|
+    |fangyu|str|是|是否有防御|
+    |udp|str|是|是否允许udp|
+    |web|str|是|是否允许建站|
+
 ## 节点状态
 - 接口
-    > GET/POST /node_stats
+    > GET&POST /node_stats
 - 返回
 
     **JSON**：
@@ -346,9 +377,7 @@ APIv2 还在开发中
 
     隧道类型
 
-    <span style="color:gold">暂不支持http/https类型隧道</span>
-
-    值为tcp/udp
+    值为tcp/udp/http/https
     
 
 - 返回
@@ -385,6 +414,38 @@ APIv2 还在开发中
     |ip|null|是|值为null|
     |nodestate|null|是|值为null|
     |uptime|null|是|值为null|
+
+## 签到
+- 接口
+    > POST /qiandao
+- 请求头
+    |参数|必填|说明|
+    |:--:|:--:|:--:|
+    |authorization|是|详见下方|
+
+    <b><i>authorization</b></i>:
+
+    格式 "Bearer {token}"
+    
+    用于传递token
+- 请求参数
+
+    **JSON**:
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |captcha_output|str|是|人机验证参数|
+    |gen_time|str|是|人机验证参数|
+    |lot_number|str|是|人机验证参数|
+    |pass_token|str|是|人机验证参数|
+
+- 返回
+ 
+    **JSON**：
+    |参数|类型|必填|说明|
+    |:--:|:--:|:--:|:--:|
+    |code|int|是|返回状态码|
+    |state|str|是|请求是否成功|
+    |msg|str|是|返回消息|
 
 ## 生成frpc.ini
 - 接口
