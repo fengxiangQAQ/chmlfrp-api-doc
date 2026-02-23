@@ -153,7 +153,11 @@ APIv2 还在开发中
     |state|str|是|请求是否成功|
     |msg|str|是|返回消息|
 
-## 节点列表
+## 节点信息列表
+```
+注: 此接口仅返回在线节点且数据会抖动
+    如需完整节点列表 见节点状态列表
+```
 - 接口
     > GET&POST /node
 - 返回
@@ -177,14 +181,17 @@ APIv2 还在开发中
     |:--:|:--:|:--:|:--:|
     |id|int|是|节点识别编号|
     |name|str|是|节点名称|
-    |nodegroup|str|是|节点所属组|
+    |nodegroup|str|是|节点所属权限组|
     |area|str|是|节点地理位置|
     |china|str|是|是否为国内节点|
     |fangyu|str|是|是否有防御|
     |udp|str|是|是否允许udp|
     |web|str|是|是否允许建站|
 
-## 节点状态
+## 节点状态列表
+```
+注: 该接口返回完整节点列表 若节点永久下线 则不存在于该节点列表
+```
 - 接口
     > GET&POST /node_stats
 - 返回
@@ -208,7 +215,7 @@ APIv2 还在开发中
     |:--:|:--:|:--:|:--:|
     |id|int|是|节点识别编号|
     |node_name|str|是|节点名称|
-    |nodegroup|str|是|节点所属组|
+    |nodegroup|str|是|节点所属权限组|
     |state|str|是|在线状态(online/offline)|
     |client_counts|int|是|客户端连接数|
     |tunnel_counts|int|是|隧道连接数|
@@ -228,6 +235,9 @@ APIv2 还在开发中
     |:--:|:--:|:--:|:--:|
     |token|str|是|用户令牌|
     |node|str|是|节点名|
+    ```
+    注: 免费用户无权获取vip节点详情(token判断)
+    ```
 - 返回
 
     **JSON**：
